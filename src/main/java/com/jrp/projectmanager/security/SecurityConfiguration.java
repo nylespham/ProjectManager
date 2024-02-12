@@ -30,7 +30,10 @@ public class SecurityConfiguration {
     @Bean
     public UserDetailsManager users(DataSource dataSource){
         UserDetails user = User.withDefaultPasswordEncoder()
-                .us
+                .username("nyles")
+                .password("P@ssw0rd")
+                .build();
+        return UserDetailsManager(user);
     }
     @Bean
     public PasswordEncoder getPasswordEncoder(){
