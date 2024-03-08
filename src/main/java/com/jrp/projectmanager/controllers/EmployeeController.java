@@ -19,7 +19,7 @@ public class EmployeeController {
     EmployeeService empService;
     @GetMapping("")
     public String displayEmployee(Model model){
-        List<Employee> employeeList = empService.getAll();
+        Iterable<Employee> employeeList = empService.getAll();
         model.addAttribute("employees", employeeList);
         return "employees/main";
     }

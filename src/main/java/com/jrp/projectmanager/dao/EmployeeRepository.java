@@ -7,8 +7,6 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface EmployeeRepository extends CrudRepository<Employee, Long> {
-    @Override
-    public List<Employee> findAll();
 @Query(nativeQuery = true, value="SELECT employee.first_name as firstName , employee.last_name as lastName, COUNT(project_employee.employee_id) as projectcount\n" +
         "FROM employee\n" +
         "LEFT JOIN project_employee\n" +

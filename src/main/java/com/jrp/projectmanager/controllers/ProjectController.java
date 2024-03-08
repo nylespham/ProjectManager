@@ -33,7 +33,7 @@ public class ProjectController {
     @GetMapping("/new")
     public String displayProjectForm(Model model){
         Project aProject = new Project();
-        List<Employee> employeeList = empService.getAll();
+        Iterable<Employee> employeeList = empService.getAll();
         model.addAttribute("project", aProject);
         model.addAttribute("allEmployees", employeeList);
         return "projects/new-project";

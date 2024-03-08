@@ -12,4 +12,6 @@ public class WebConfig implements WebMvcConfigurer {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         return bCryptPasswordEncoder;
     }
+
+    
 }
