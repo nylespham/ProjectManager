@@ -4,10 +4,10 @@ import com.jrp.projectmanager.dao.EmployeeRepository;
 import com.jrp.projectmanager.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import org.springframework.data.domain.Pageable;
 
 @RestController
 @RequestMapping("/app-api/employees")
@@ -52,6 +52,12 @@ public class EmployeeApiController {
             System.out.println(e);
         }
 
+    }
+    @GetMapping(params = {"page", "size"})
+    @ResponseStatus(HttpStatus.OK)
+    public Iterable<Employee> findPaginatedEmployee(@RequestParam("page") int page, @RequestParam("size") int size){
+        Pageable pageAndSize = PageRequest.of(page, size);
+        return employeeRepository.findAll(pageAndSize);
     }
 
 }

@@ -4,9 +4,11 @@ import com.jrp.projectmanager.dto.EmployeeProject;
 import com.jrp.projectmanager.entity.Employee;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
+
 import java.util.List;
 
-public interface EmployeeRepository extends CrudRepository<Employee, Long> {
+public interface EmployeeRepository extends PagingAndSortingRepository<Employee, Long> {
 @Query(nativeQuery = true, value="SELECT employee.first_name as firstName , employee.last_name as lastName, COUNT(project_employee.employee_id) as projectcount\n" +
         "FROM employee\n" +
         "LEFT JOIN project_employee\n" +

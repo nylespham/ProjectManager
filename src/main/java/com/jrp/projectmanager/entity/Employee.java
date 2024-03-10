@@ -1,6 +1,7 @@
 package com.jrp.projectmanager.entity;
 
 import jakarta.persistence.*;
+import org.antlr.v4.runtime.misc.NotNull;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ public class Employee {
     private long employeeId;
     private String firstName;
     private String lastName;
+    private String email;
 
     public List<Project> getProject() {
         return project;
@@ -63,5 +65,5 @@ public class Employee {
         this.email = email;
     }
 
-    private String email;
+
 }
