@@ -22,7 +22,7 @@ public class EmployeeApiController {
 
     @GetMapping("/{id}")
     public Employee getEmployeeById(@PathVariable("id") Long id){
-        return employeeRepository.findById(id).get();
+        return employeeRepository.findByEmployeeId(id);
     }
     @PostMapping(consumes = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
@@ -31,7 +31,7 @@ public class EmployeeApiController {
     }
     @PatchMapping(path="/{id}")
     public Employee partialUpdate(@PathVariable("id") Long id, @RequestBody Employee employee){
-        Employee emp = employeeRepository.findById(id).get();
+        Employee emp = employeeRepository.findByEmployeeId(id);
         if (employee.getEmail() != null) {
             emp.setEmail(employee.getEmail());
         }

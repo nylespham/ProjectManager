@@ -16,4 +16,11 @@ public interface EmployeeRepository extends PagingAndSortingRepository<Employee,
         "GROUP BY employee.first_name, employee.last_name\n" +
         "ORDER BY employee.first_name DESC;")
     public List<EmployeeProject> employeeProject();
+
+    public Employee save(Employee employee);
+
+    public Iterable<Employee> findAll();
+    public Employee findByEmployeeId(Long employeeId);
+    public void deleteById(Long employeeId);
+
 }
